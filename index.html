@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="clock.css">
+  <title>Analog Clock</title>
+</head>
+
+<body>
+  <div class="text">
+    <h2>ANALOG CLOCK<span> BY ATUL PAL</span></h2>
+  </div>
+  <div class="clockContainer">
+    <div id="hour"></div>
+    <div id="min"></div>
+    <div id="sec"></div>
+  </div>
+
+  <script type="text/javascript">
+    setInterval(() => {
+      var hour = document.getElementById('hour');
+      var min = document.getElementById('min');
+      var sec = document.getElementById('sec');
+
+      var time = new Date();
+      var hr = time.getHours();
+      console.log(hr);
+      var mn = time.getMinutes();
+      var sc = time.getSeconds();
+
+      var hrRot = (30 * hr) + mn / 12;
+      var mnRot = 6 * mn;
+      var scRot = 6 * sc;
+
+      hour.style.transform = `rotate(${hrRot}deg)`;
+      min.style.transform = `rotate(${mnRot}deg)`;
+      sec.style.transform = `rotate(${scRot}deg)`;
+    }, 1000);
+  </script>
+</body>
+
+</html>
